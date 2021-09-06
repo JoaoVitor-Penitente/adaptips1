@@ -3,20 +3,17 @@
 namespace Database\Factories;
 
 use App\Models\Country;
-use App\Models\Movie;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Str;
 
-class MovieFactory extends Factory
+class CountryFactory extends Factory
 {
-    
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Movie::class;
-    
+    protected $model = Country::class;
 
     /**
      * Define the model's default state.
@@ -26,13 +23,7 @@ class MovieFactory extends Factory
     public function definition()
     {
         return [
-            'title' => $this->faker->name(),
-            'genre' => $this->faker->name(),
-            'release' => $this->faker->dateTimeThisYear(),
-            'synopsis' => $this->faker->text(),
-            'rating' => "9.8",
-            'imagem' => '',
-            
+            'name' => $this->faker->country(),
         ];
     }
 

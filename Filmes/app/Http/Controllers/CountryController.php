@@ -1,11 +1,10 @@
 <?php
 namespace App\Http\Controllers;
-use App\Models\Movie;
 use App\Models\Country;
 
 use Illuminate\Http\Request;
 
-class MovieController extends Controller
+class CountryController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +13,8 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = Movie::all();
-        return view('movies' , compact('movies'));
+        $countries = Country::all();
+        return view('movies' , compact('countries'));
 
     }
 
