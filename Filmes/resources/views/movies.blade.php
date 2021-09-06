@@ -8,7 +8,7 @@
 </head>
 <body>
     @foreach ($movies as $movie)
-        <h4>title: {{ $movie->title }} - country: {{ $movie->movie->name}}</h4>
+        <h4>title: {{ $movie->title }} - country: {{ $movie->country->name}}</h4>
     @endforeach
 
     

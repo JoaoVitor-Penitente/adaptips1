@@ -10,9 +10,9 @@ class Movie extends Model
     use HasFactory;
     protected $fillable = ['title','genre','release','synopsis','rating','image','country_id'];
 
-    public function movie()
+    public function country()
 {
-    return $this->hasOne(Country::class,'id');
+    return $this->belongsTo(Country::class);
 }
 }
 
