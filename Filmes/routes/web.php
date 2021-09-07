@@ -14,5 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::resource('movie', MovieController::class);
-
+Route::resource('create', MovieController::class);
+Route::resource('edit/{id}', MovieController::class);
+Route::resource('update/{id}', MovieController::class);
 

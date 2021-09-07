@@ -12,6 +12,6 @@ class Country extends Model
 
     public function movie()
     {
-        return $this->hasOne(Movie::class,'id');
+        return $this->hasOne(Movie::class,'country_id');
     }
 }

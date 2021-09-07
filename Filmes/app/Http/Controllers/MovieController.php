@@ -2,8 +2,10 @@
 namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Models\Country;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
+use SebastianBergmann\LinesOfCode\Counter;
 
 class MovieController extends Controller
 {
@@ -15,7 +17,7 @@ class MovieController extends Controller
     public function index()
     {
         $movies = Movie::all();
-        return view('movies' , compact('movies'));
+        return view('movie' , compact('movies'));
 
     }
 
@@ -26,7 +28,7 @@ class MovieController extends Controller
      */
     public function create()
     {
-        //
+        return view('create');
     }
 
     /**
@@ -37,7 +39,20 @@ class MovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $data = $request->all();
+
+        $country = Country::create([
+            'name' => $data['country']
+        ]);
+
+        $data['country_id'] = $country->id;
+
+        $data['image'] = '/storage/'. $request->file('image')->store('movie','public');
+
+        Movie::create($data);
+
+        return redirect(route('movie.index'));
     }
 
     /**
@@ -48,7 +63,8 @@ class MovieController extends Controller
      */
     public function show($id)
     {
-        //
+        
+
     }
 
     /**
@@ -59,7 +75,9 @@ class MovieController extends Controller
      */
     public function edit($id)
     {
-        //
+        $movie = Movie::find($id);
+
+        return view('edit', compact('movie'));
     }
 
     /**
@@ -71,7 +89,33 @@ class MovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+        $movie = Movie::find($id);
+        $data = $request->all();
+        $country = Country::find($movie->country_id);
+        
+        if (isset($data['image'])){
+            $path = substr($movie->image,9);
+            Storage::delete('public/'. $path);
+            $data['image'] = '/storage/'. $request->file('image')->store('movie','public');
+        }
+
+        if($country->name !== $data['country']){
+            $new_country = Country::create([
+                'name' => $data['country']
+            ]);
+
+            $data['country_id'] = $new_country->id;
+            $movie->update($data);
+            $country->delete();
+        }
+        else{
+            $data['country_id'] = $country->id;
+            $movie->update($data);
+        }
+
+        return redirect(route('movie.index'));
+
     }
 
     /**
