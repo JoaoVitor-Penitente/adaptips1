@@ -16,8 +16,32 @@ class MovieController extends Controller
      */
     public function index()
     {
-        $movies = Movie::all();
-        return view('movie' , compact('movies'));
+        $search = request('search');
+        
+        if ($search){
+            
+            $movies = Movie::where([
+                ['title','like','%'.$search.'%']])
+                ->orwhere([['genre','like','%'.$search.'%']])
+                ->orwhere([['release','like','%'.$search.'%']])
+                ->orwhere([['rating','like','%'.$search.'%']])
+                ->get();
+            
+            if(count($movies) == 0){
+                $country = Country::where('name',$search)->first();
+                if ($country == null){
+                    $movies = [];
+                }
+                else{
+                    $movies = Movie::where('country_id',$country->id)->get();
+                } 
+            }
+        }
+        else{
+            $movies = Movie::all();
+        }
+        
+        return view('movie' , compact('movies','search'));
 
     }
 
@@ -126,6 +150,7 @@ class MovieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Movie::find($id)->delete(); 
+        return redirect(route('movie.index'));
     }
-}
+}   
