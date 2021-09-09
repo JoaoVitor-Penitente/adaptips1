@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding : 0;
+    border: none;
+    text-decoration: none;
+    box-sizing: border-box;
+}
+html{
+    --green:#bad256;
+    --blue:#111240;
+    font-size: 62.5%; /*10 px*/
+}
+
+.sr-only{
+    position: absolute;
+    height: 1px;
+    width: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: rect(0,0,0,0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+body{
+    display: flex;
+    height: 100vh;
+}
+

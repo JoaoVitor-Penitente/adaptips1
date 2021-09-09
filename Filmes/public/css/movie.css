@@ -1,0 +1,8 @@
+form {
+    display: inline-block;
+}
+
+div #search #movie_container {
+    display: flex;
+}
+
