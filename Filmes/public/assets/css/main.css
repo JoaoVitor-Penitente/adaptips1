@@ -1,0 +1,10 @@
+
+body header, footer{
+    background: var(--green);
+}
+main{
+    height: 90vh;
+}
+.footer {
+    margin-top: 1.15rem;
+}

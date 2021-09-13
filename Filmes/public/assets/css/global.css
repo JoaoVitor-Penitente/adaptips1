@@ -6,9 +6,10 @@
     box-sizing: border-box;
 }
 html{
-    --green:#bad256;
-    --blue:#111240;
+    --green:#BADC58;
+    --blue:#130F40;
     font-size: 62.5%; /*10 px*/
+
 }
 
 .sr-only{
@@ -23,8 +24,13 @@ html{
     border-width: 0;
 }
 
-body{
-    display: flex;
-    height: 100vh;
+.button-submit{
+    background: white;
 }
+
+.search input{
+    border: 1px solid var(--blue);
+    box-sizing: border-box;
+    border-radius: 3px;
+    }
 

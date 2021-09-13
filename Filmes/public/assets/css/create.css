@@ -1,0 +1,14 @@
+
+textarea {
+    resize:none;
+    height: 10rem;
+    width: 30rem;
+}
+input, textarea {
+    border: .1rem solid var(--blue);
+    padding: 0 1.6rem;
+    border-radius: 0.6rem;
+    height: 3rem;
+    outline: none;
+    word-break: break-word;
+}

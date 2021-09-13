@@ -1,51 +1,51 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link href="{{ asset('/css/global.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('/css/create.css') }}" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
-    <title>Editar Filme</title>
-</head>
-<body>
-    <a href="{{route('movie.index')}}">voltar</a>
-    <form action="{{ route('movie.update',$movie->id) }}" method="POST" enctype="multipart/form-data">
-        @csrf
-        @method('PATCH')
-        <div>
-            <div>
-                <h2>Nome do filme</h2>
-                <label for="title" class="sr-only"></label>
-                <input type="text" name="title" id="title" value="{{ $movie->title}}"></div>
-            <div>
-                <h2>Gênero</h2>
-                <label for="genre" class="sr-only"></label>
-                <input type="text" name="genre" id="genre" value="{{ $movie->genre}}"></div>
-            <div>
-                <h2>Lançamento</h2>
-                <label for="release" class="sr-only"></label>
-                <input type="date" name="release" id="release" value="{{ $movie->release}}"></div>
-            <div>
-                <h2>País</h2>
-                <label for="country"class="sr-only"></label>
-                <input type="text" name="country" id="country" value ="{{ $movie->country->name }}"></div>
-            <div>
-                <h2>Nota</h2>
-                <label for="rating" class="sr-only"></label>
-                <input type="number" step= 0.1  name="rating" id="rating" value="{{ $movie->rating}}"></div>    
-            <div>
-                <h2>Sinopse do filme</h2>
-                <label for="synopsis" class="sr-only"></label>
-                <textarea name="synopsis" id="synopsis">{{ $movie->synopsis}}</textarea></div>    
-            <div>
-                <h2>Selecionar imagem</h2>
-                <label for="image" class="sr-only"></label>
-                <input type="file" name="image" id="image"></div>
+@extends('layouts.main')
+
+@section('title','Movie Edit')
+
+@section('content')
+<main>
+    
+<a href="{{route('movie.index')}}">voltar</a>
+<form action="{{ route('movie.update',$movie->id) }}" method="POST" enctype="multipart/form-data">
+    @csrf
+    @method('PATCH')
+    <section class ="edit-container">
+        <div class = "titulo">
+            <label for="title">Titulo</label>
+            <input type="text" name="title" id="title" value="{{ $movie->title}}">
         </div>
-        <button type="submit">Editar</button>
+        <div class = "genero">
+            <label for="genre">Genero</label>
+            <input type="text" name="genre" id="genre" value="{{ $movie->genre}}">
+        </div>
+        <div class = "data-lancamento">
+            <label for="release">Data de Lançamento</label>
+            <input type="date" name="release" id="release" value="{{ $movie->release}}">
+        </div>
+        <div class = "pais">
+            <label for="country">País</label>
+            <input type="text" name="country" id="country" value ="{{ $movie->country->name }}">   
+        </div>
+
+        <div class = "nota">
+            <label for="rating" ></label>
+            <input type="number" step= 0.1  name="rating" id="rating" value="{{ $movie->rating}}">
+        </div>    
+        <div class = "descrição">
+            <label for="synopsis" ></label>
+            <textarea name="synopsis" id="synopsis">{{ $movie->synopsis}}</textarea>
+        </div>    
+        <div class = "imagem">
+            <label for="image" ></label>
+            <input type="file" name="image" id="image">
+        </div>
+    </section>
+    <button type="submit">Editar</button>
+    <form action="{{route('movie.destroy',$movie->id)}}" id="delete" method="POST">
+        @csrf
+        @method('DELETE')
+        <button type ="subimit" class="button-submit" id= "deletar" onclick="alerta()"alt="deletar">Apagar filme</button>
     </form>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
-</body>
-</html>
+</form>
+</main>
+@endsection
