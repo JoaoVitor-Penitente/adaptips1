@@ -2,6 +2,8 @@
 namespace App\Http\Controllers;
 use App\Models\Movie;
 use App\Models\Country;
+use Facade\Ignition\Http\Controllers\ScriptController;
+use Illuminate\Database\Eloquent\JsonEncodingException;
 use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
@@ -40,7 +42,6 @@ class MovieController extends Controller
         else{
             $movies = Movie::all();
         }
-        
         return view('movie' , compact('movies','search'));
 
     }
@@ -153,4 +154,5 @@ class MovieController extends Controller
         Movie::find($id)->delete(); 
         return redirect(route('movie.index'));
     }
+
 }   

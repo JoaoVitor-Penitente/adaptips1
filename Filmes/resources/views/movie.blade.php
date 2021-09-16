@@ -3,45 +3,61 @@
 @section('title','Movies | Adapti')
 
 @section('content')
-<main>
     <div class="search">
-        <form class="d-flex" action="{{ route('movie.index')}}" method="GET">
+        @if ($search)
+            <h2>buscando por: {{ $search }}</h2>
+        @else
+            <h1>Filmes</h1>
+        @endif
+        <form class="search-form" action="{{route('movie.index')}}" method="GET">
             @csrf
-            <input type="text" id="search" name = "search" class="form-control" placeholder="pesquisar..">
-            <button type="submit" class="button-submit">buscar</button>
+            <input type="text" id="search" name = "search" class="search-input" placeholder="pesquisar..">
+            <button type="submit" class="button-search"><img src="{{ asset('assets/image/lupa.svg') }}" alt="lupa"></button>
         </form>
-    </div>
-
-    <section class = "movie_container">
-    @if ($search)
-        <h2>buscando por: {{ $search }}</h2>
-    @else
-        <h2>Filmes</h2>
-    @endif
-
-    @foreach ($movies as $movie)
-    <h4>title: {{ $movie->title }} - country: {{ $movie->country->name}}</h4>
-
-    <div>
-        <img src="{{$movie->image}}">
-    </div>
-
-    <a class="button-edit" href="{{ route('movie.edit', $movie->id)}}"><img src="{{ asset('assets/image/edit.svg') }}" alt="editar"></a>
-    <form action="{{route('movie.destroy',$movie->id)}}" id="delete" method="POST">
-        @csrf
-        @method('DELETE')
         
-        <button type ="subimit" class="button-submit" id= "deletar" onclick="alerta()"><img src="{{ asset('assets/image/excluir.svg') }}" alt="deletar"></button>
-    </form>
-    @endforeach
+    </div>
+    <div class = "movie-container">
+        @foreach ($movies as $movie)
+            <div class="movie-card">
+                <div class = "info-top">
+                    <h2>{{$movie->title}}</h2>
+                    <div class = "main-button-container">
+                        <a class="button-edit" href="{{ route('movie.edit', $movie->id)}}"><img src="{{ asset('assets/image/edit.svg') }}" alt="editar"></a>
+                        <form action="{{route('movie.destroy',$movie->id)}}" id="delete" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type ="subimit" class ="form-delete" id= "deletar" onclick="alerta()"><img src="{{ asset('assets/image/excluir.svg') }}" alt="deletar"></button>
+                        </form>
+                    </div>
+                </div>
+                <div class ="logo">
+                    <img class = "capa"src="{{$movie->image}}">
+                </div>
+            <div class = "info-container">
+                <p>{{$movie->genre}}</p>
+                <p><strong>País:</strong> {{$movie->country->name}}</p>
+                <p><strong>lançamento:</strong> {{$movie->release}}</p>
+                <p><strong>Nota:</strong> {{$movie->rating}}</p>
+                <p><strong>Sinopse:</strong>{{$movie->synopsis}}</p>
+            </div>
+            </div>
+            
+    
+        @endforeach
 
-    @if(count($movies)== 0 && $search)
-    <p>Não foi possível encontrar nenhum filme com: {{ $search}} ! <a class="button-back" href="{{ route('movie.index')}}">Ver Filmes Disponiveis</a></p>
-    @elseif(count($movies) == 0)  
-    <p>Não há filmes</p>  
-    @endif
+        @if(count($movies)== 0 && $search)
+        <div class="sem-pesquisa">
+            <p>Não foi possível encontrar nenhum filme com: {{ $search}} !</p>
+            <a class="button-back voltar" href="{{ route('movie.index')}}">Ver Filmes Disponiveis</a>
+        </div>
+        @elseif(count($movies) == 0)  
+            <div class ="sem-filmes">
+                <p >Não há filmes</p>  
+            </div>
+            
+        @endif
 
-    </section>
-</main>
+    </div>
+    
 
 @endsection

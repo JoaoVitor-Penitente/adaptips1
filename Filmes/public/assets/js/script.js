@@ -11,3 +11,6 @@ function alerta(){
         document.location.reload(true)
     }   
 }
+
+
+
