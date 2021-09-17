@@ -1,0 +1,119 @@
+html{
+    height: 100%;
+}
+
+.header-container{
+    position: absolute;
+}
+
+/* container */
+.form-create{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 5rem 5rem 0rem 5rem;
+    background-color:--black;
+    font-size: 7rem;
+}
+.create-container{
+    display: block;
+    border: .1rem solid var(--red);
+    border-radius: 1rem;
+    background-color:var(--red);
+    margin-top: 10rem;
+    padding: 5rem;
+    color: var(--yellow);
+}
+
+/* inputs */
+
+.text-camp{
+    display: flex;
+    flex-direction: column;
+}
+.input-form{
+    font-family: 'Comfortaa';
+    display:flex;
+    padding: .5rem;
+    border-radius: 1rem;
+    border: .1rem solid var(--yellow);
+}
+
+.input-form::placeholder{
+    font-family: 'Comfortaa';
+    color: var(--black);
+}
+.input-img{
+    display: none;
+}
+
+label{
+    font-size: 3rem;
+}
+
+.create-area{
+    resize: none;
+    width: 20vw;
+    height: 18vh;
+}
+
+
+
+/* imagem */
+.imagem-create{
+    display: flex;
+    flex-direction: column;
+}
+.imagem.create label{
+    font-size: 3rem;
+}
+.imagem-create .preview{
+    width: 12rem;
+    height: 16rem;
+    border: 0.2rem solid var(--black);
+}
+/* buttons create */
+.create-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0rem 0rem 3rem 0rem;
+}
+
+.button-select{
+    display: inline-block;
+    border-radius: 1rem;
+    color: var(--black);
+    background-color: var(--yellow);
+    white-space: nowrap;
+    width: 12rem;
+    text-align: center;
+    height: 3rem; 
+    padding: .38rem; 
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    border: .1rem solid var(--black);
+}
+
+.button-select:hover{
+    color: white;
+    cursor: pointer;
+}
+
+.button-form{
+    display: inline-block;
+    font-family: 'Bebas Neue';
+    border-radius: 1rem;
+    color: var(--black);
+    background-color: var(--yellow);
+    white-space: nowrap;
+    width: 16rem;
+    text-align: center;
+    height: 3rem; 
+    padding: .38rem; 
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    border: .1rem solid var(--red);
+    
+}

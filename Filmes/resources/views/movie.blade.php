@@ -12,21 +12,21 @@
         <form class="search-form" action="{{route('movie.index')}}" method="GET">
             @csrf
             <input type="text" id="search" name = "search" class="search-input" placeholder="pesquisar..">
-            <button type="submit" class="button-search"><img src="{{ asset('assets/image/lupa.svg') }}" alt="lupa"></button>
+            <button type="submit" class="button-search btn"><i class="fas fa-search"></i></button>
         </form>
-        
     </div>
+    
     <div class = "movie-container">
         @foreach ($movies as $movie)
             <div class="movie-card">
                 <div class = "info-top">
                     <h2>{{$movie->title}}</h2>
                     <div class = "main-button-container">
-                        <a class="button-edit" href="{{ route('movie.edit', $movie->id)}}"><img src="{{ asset('assets/image/edit.svg') }}" alt="editar"></a>
+                        <a class="button-edit" href="{{ route('movie.edit', $movie->id)}}"><i class="far fa-edit"></i></a>
                         <form action="{{route('movie.destroy',$movie->id)}}" id="delete" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type ="subimit" class ="form-delete" id= "deletar" onclick="alerta()"><img src="{{ asset('assets/image/excluir.svg') }}" alt="deletar"></button>
+                            <button type ="subimit" class ="form-delete" id= "deletar" onclick="alerta()"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </div>
                 </div>

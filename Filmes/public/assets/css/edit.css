@@ -1,0 +1,122 @@
+html{
+    height: 100%;
+}
+
+.header-container{
+    position: absolute;
+}
+
+/* container */
+.form-crud{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    padding: 5rem 5rem 0rem 5rem;
+    background-color:--black;
+    font-size: 7rem;
+}
+.edit-container{
+    display: block;
+    border: .1rem solid var(--red);
+    border-radius: 1rem;
+    background-color:var(--red);
+    margin-top: 10rem;
+    padding: 5rem;
+    color: var(--yellow);
+}
+
+/* inputs */
+.text-camp-crud{
+    display: flex;
+    flex-direction: column;
+}
+.input-form-crud{
+    font-family: 'Comfortaa';
+    display:flex;
+    padding: .5rem;
+    border-radius: 1rem;
+    border: .1rem solid var(--yellow);
+}
+
+.input-form-crud::placeholder{
+    font-family: 'Comfortaa';
+    color: var(--black);
+}
+.input-img-crud{
+    display: none;
+}
+
+label{
+    font-size: 3rem;
+}
+
+.create-area-crud{
+    resize: none;
+    width: 20vw;
+    height: 18vh;
+}
+
+
+
+/* imagem */
+.imagem-edit{
+    display: flex;
+    flex-direction: column;
+}
+.imagem-edit label{
+    font-size: 2rem;
+}
+.imagem-edit .preview-edit{
+    width: 12rem;
+    height: 16rem;
+    border: 0.2rem solid var(--black);
+}
+/* buttons edit */
+
+.edit-buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+    padding: 0rem 0rem 3rem 0rem;
+}
+.button-select-crud{
+    display: inline-block;
+    border-radius: 1rem;
+    color: var(--black);
+    background-color: var(--yellow);
+    white-space: nowrap;
+    width: 12rem;
+    text-align: center;
+    height: 3rem; 
+    padding: .38rem; 
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    font-family: 'Bebas Neue';
+    border: .1rem solid var(--red);
+}
+.button-select:hover{
+    color: white;
+    cursor: pointer;
+}
+.create-buttons{
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+.button-form{
+    display: inline-block;
+    font-family: 'Bebas Neue';
+    border-radius: 1rem;
+    color: var(--black);
+    background-color: var(--yellow);
+    white-space: nowrap;
+    width: 16rem;
+    text-align: center;
+    height: 3rem; 
+    padding: .38rem; 
+    margin-top: 1rem;
+    font-size: 1.7rem;
+    
+}
