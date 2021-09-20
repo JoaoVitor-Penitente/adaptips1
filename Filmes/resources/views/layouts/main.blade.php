@@ -31,13 +31,13 @@
     <main class = "main-container">
         @yield('content')
     </main>
-    
+
     <footer class = "footer-container container">
         <h6>Desenvolvido com &hearts; 2021 Adapti-Soluções Web</h6>
         <div class="footer-icons">
-            <a href="#" class="social-icons"><i class="fab fa-facebook-square"></i></a>
-            <a href="#" class="social-icons"><i class="fab fa-instagram-square"></i></a>
-            <a href="#" class="social-icons"><i class="fab fa-linkedin"></i></a>
+            <a target="_blank" href="#" class="social-icons"><i class="fab fa-facebook-square"></i></a>
+            <a target="_blank"href="#" class="social-icons"><i class="fab fa-instagram-square"></i></a>
+            <a target="_blank" href="#" class="social-icons"><i class="fab fa-linkedin"></i></a>
         </div>
     </footer>
     

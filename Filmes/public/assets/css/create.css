@@ -2,9 +2,6 @@ html{
     height: 100%;
 }
 
-.header-container{
-    position: absolute;
-}
 
 /* container */
 .form-create{
@@ -117,3 +114,8 @@ label{
     border: .1rem solid var(--red);
     
 }
+.button-form:hover{
+    color: var(--white);
+    cursor: pointer;
+}
+

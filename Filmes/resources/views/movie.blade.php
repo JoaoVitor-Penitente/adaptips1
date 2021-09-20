@@ -21,43 +21,38 @@
             <div class="movie-card">
                 <div class = "info-top">
                     <h2>{{$movie->title}}</h2>
-                    <div class = "main-button-container">
-                        <a class="button-edit" href="{{ route('movie.edit', $movie->id)}}"><i class="far fa-edit"></i></a>
+                </div>
+                <div class = "info-container">
+                    <img class = "capa"src="{{$movie->image}}">
+                    <div class = "info-text">
+                        <p><strong>Gênero:</strong>{{$movie->genre}}</p>
+                        <p><strong>País:</strong> {{$movie->country->name}}</p>
+                        <p><strong>lançamento:</strong> {{$movie->release}}</p>
+                        <p><strong>Nota:</strong> {{$movie->rating}}</p>
+                        <p><strong>Sinopse:</strong>{{$movie->synopsis}}</p>
+                    </div>
+                </div>
+                
+                <div class = "main-button-container">
+                        <a class="button-edit none" href="{{ route('movie.edit', $movie->id)}}"><i class="far fa-edit"></i></a>
                         <form action="{{route('movie.destroy',$movie->id)}}" id="delete" method="POST">
                             @csrf
                             @method('DELETE')
-                            <button type ="subimit" class ="form-delete" id= "deletar" onclick="alerta()"><i class="fas fa-trash-alt"></i></button>
+                            <button type ="subimit" class ="main-form-delete none" id= "deletar" onclick="alerta()"><i class="fas fa-trash-alt"></i></button>
                         </form>
                     </div>
-                </div>
-                <div class ="logo">
-                    <img class = "capa"src="{{$movie->image}}">
-                </div>
-            <div class = "info-container">
-                <p>{{$movie->genre}}</p>
-                <p><strong>País:</strong> {{$movie->country->name}}</p>
-                <p><strong>lançamento:</strong> {{$movie->release}}</p>
-                <p><strong>Nota:</strong> {{$movie->rating}}</p>
-                <p><strong>Sinopse:</strong>{{$movie->synopsis}}</p>
             </div>
-            </div>
-            
-    
         @endforeach
-
-        @if(count($movies)== 0 && $search)
-        <div class="sem-pesquisa">
-            <p>Não foi possível encontrar nenhum filme com: {{ $search}} !</p>
-            <a class="button-back voltar" href="{{ route('movie.index')}}">Ver Filmes Disponiveis</a>
-        </div>
-        @elseif(count($movies) == 0)  
-            <div class ="sem-filmes">
-                <p >Não há filmes</p>  
-            </div>
-            
-        @endif
-
     </div>
-    
-
+    @if(count($movies)== 0 && $search)
+        <div class="sem-pesquisa">
+            <h2>:(</h2>
+            <p>Não foi possível encontrar nenhum filme com: {{ $search}} !</p>
+            <a class="sem-pesquisa-button" href="{{ route('movie.create')}}">Adicione esse filme no catálogo</a>
+        </div>
+    @elseif(count($movies) == 0)  
+        <div class ="sem-filmes">
+            <p >Não há filmes cadastrados</p>  
+        </div>
+    @endif
 @endsection

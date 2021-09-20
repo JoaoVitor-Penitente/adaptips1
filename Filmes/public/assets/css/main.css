@@ -31,9 +31,12 @@ html{
     padding: 1.5rem;
     background:var(--red);
     color: var(--yellow);
+
 }
 .header-container{
     position: fixed;
+    border-bottom: .1rem solid var(--black);
+    z-index: 7;
 }
 .header-title{
     display: flex;
@@ -152,7 +155,8 @@ html{
 /* main container */
 
 .main-container{
-    background:rgb(0, 0, 0);
+    height: 100%;
+    background:var(--black);
 }
 
 .movie-container{
@@ -165,7 +169,221 @@ html{
 
 /* cards */
 .movie-card{
-    border: 1rem;
+    height:100%;
+    border-radius: 1rem;
     border: .1rem solid var(--red);
+    background-color: var(--white);
 
+}
+.movie-card:hover{
+    transform: scale(1.05);
+}
+
+.info-top{
+    display:flex;
+    font-size: 7rem;
+    text-align: center;
+    justify-content:center;
+    overflow: hidden;
+    white-space: nowrap;
+    height: 10%;
+    
+    
+}
+.info-top h2{
+    color:var(--red);
+    padding: .1rem;
+    
+}
+.info-text{
+    display: none;
+    position: absolute;
+    font-size: 4rem;
+    width: 90%;
+    gap: 2rem;
+    justify-content:space-evenly;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.info-text p{
+    gap: 1rem;
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem;
+}
+.info-text strong{
+    font-size: 2rem;
+}
+
+
+.info-container:hover .info-text{
+    display: flex;
+}
+/* imagem card */
+
+.info-container{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    position: relative;
+    z-index: 4;
+}
+
+.capa{
+    width: 90%;
+    height: 48vh;
+    transition: .2s all ease;
+    opacity: 1;
+    border-radius: 1rem;
+    object-fit: cover;
+}
+
+
+.info-container:hover .capa{
+    opacity: 0.3;
+    
+}
+/* buttons */
+.main-button-container{
+    padding: 2rem 2rem 2rem 2rem;
+    font-size: 5rem;
+    display:flex;
+    gap: 1rem;
+    justify-content: center;
+    z-index: 6;
+    
+}
+
+.main-form-delete{
+    font-size: 3rem;
+    background-color:var(--white);
+}
+.none{
+    display: none;
+    color: var(--red);
+}
+.movie-card:hover .none{
+    display:flex;
+}
+
+
+
+/* sem pesquisa */
+.sem-pesquisa{
+    display: flex;
+    white-space: nowrap;
+    font-size: 9rem;
+    color: white;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex-direction: column;
+    height:100vh;
+    width: 100%;
+    gap: 5rem;
+}
+
+.sem-pesquisa p{
+    font-size: 4rem;
+}
+
+.sem-pesquisa-button{
+    display: inline-block;
+    font-size: 1.5rem;
+    padding: 1rem 2.5rem;
+    background-color: var(--yellow);
+    border: .1rem solid var(--yellow);
+    border-radius: 1rem;
+    color: var(--black);
+    transition: .2s all ease;
+}
+
+.sem-pesquisa-button:hover{
+    color: var(--white);
+}
+
+/* sem filmes */
+
+.sem-filmes{
+    display: flex;
+    height:100vh;  
+    justify-content:center;
+    color: white;
+    font-size: 10rem;
+}
+
+
+
+
+/* medias */
+
+@media (max-width:1000px){
+    .movie-container{
+        justify-items: center;
+    }
+    .movie-card{
+        height: 100%;
+        width: 70%;
+    }
+
+    .info-top h2{
+        font-size: 3rem;
+    }
+    .info-text strong{
+        font-size: 2rem;
+    }
+    .info-text p {
+        font-size: 1.9rem;
+    }
+}
+
+@media (max-width:768px){
+    /* header */
+    .header-container{
+        position: fixed;
+    }
+    .header-title {
+        font-size: 6rem;
+    }
+    .header-container h6 {
+        font-size: 3rem;
+    }
+    .nav-items{  
+        gap: 1.5rem;
+    }
+    .nav-buttons{
+        font-size: 1.3rem;
+        padding: .5rem 1.5rem;
+        white-space: nowrap;
+    }
+    .nav-buttons i{
+        font-size: 1.5rem;
+    }
+    /* search */
+    .search h1 {
+        font-size: 6rem;
+    }
+
+    .search-input{
+        width: 21rem;
+    }
+    .button-search{
+        font-size: 3.5rem;
+    }
+
+
+    /* card */
+
+    .movie-card{
+        height: 100%;
+        width: 80%;
+    }
+
+    .info-text strong{
+        font-size: 1.8rem;
+    }
+    .info-text p {
+        font-size: 1.6rem;
+    }
 }
