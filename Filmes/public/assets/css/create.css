@@ -33,6 +33,7 @@ html{
     font-family: 'Comfortaa';
     display:flex;
     padding: .5rem;
+    width: 100%;
     border-radius: 1rem;
     border: .1rem solid var(--yellow);
 }
@@ -52,6 +53,7 @@ label{
 .create-area{
     resize: none;
     width: 20vw;
+    min-width: 30rem;
     height: 18vh;
 }
 
@@ -76,7 +78,9 @@ label{
     align-items: center;
     justify-content: center;
     padding: 0rem 0rem 3rem 0rem;
+    gap: 5rem;
 }
+
 
 .button-select{
     display: inline-block;
@@ -119,3 +123,63 @@ label{
     cursor: pointer;
 }
 
+@media(max-width:600px){
+    .create-container{
+        padding: 3rem;
+        margin-top: 4.5rem;
+    }
+    .text-camp label {
+        font-size: 2rem;
+    }
+
+    .input-form{
+        height: 3rem;
+    }
+    .create-area{
+        resize: none;
+        width: 20vw;
+        min-width: 30rem;
+        height: 18vh;
+    }
+    .create-buttons{
+        gap: 1rem;
+    }
+}
+@media (max-width:400px){
+    .create-container{
+        margin-top: 3rem;
+        padding: 2rem;
+    }
+    .text-camp label {
+        font-size: 1.5rem;
+    }
+
+    .input-form{
+        height: 2.5rem;
+    }
+    .create-area{
+        resize: none;
+        width: 20vw;
+        min-width: 30rem;
+        height: 18vh;
+    }
+    
+    .button-form{  
+        width: 10rem;
+        font-size: 1.5rem;
+
+    }
+    .button-form{
+        width: 15rem;
+    }
+    
+}
+
+@media (max-width:380px){
+    .create-container{
+        padding: 1rem;
+    }
+    .button-form{
+        width: 12rem;
+    }
+}

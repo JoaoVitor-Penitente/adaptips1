@@ -37,16 +37,16 @@
 </form>
 <div class="edit-buttons">
     <button form="form-crud" class="button-select-crud" type="submit">Salvar alterações</button>
-    <form action="{{route('movie.destroy',$movie->id)}}" id="delete" method="POST">
+    <form action="{{route('movie.destroy',$movie->id)}}" id="delete2" method="POST">
         @csrf
         @method('DELETE')
-        <button type ="subimit" from="delete" class="button-select-crud" id= "deletar" onclick="alerta()"alt="deletar">Apagar filme</button>
+        <button type ="subimit" class="button-select-crud" id= "deletar" onclick="alerta2()"alt="deletar">Apagar filme</button>
     </form>
     <a class = "button-select-crud"href="{{route('movie.index')}}">voltar</a>
 </div>
 <script>
-    function alerta(){
-        let x = document.querySelector('#delete')
+    function alerta2(){
+        let x = document.querySelector('#delete2')
         let confirm = window.confirm('Você realmente deseja deletar o filme?')
 
         if (confirm){

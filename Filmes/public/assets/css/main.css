@@ -101,6 +101,7 @@ html{
 }
 
 /* search */
+
 .search {
     display: block;
     text-align: center;
@@ -110,6 +111,12 @@ html{
     padding: 8rem 0 0 0;
     color: var(--white);
     font-size: 8rem;
+}
+
+.search h2 {
+    color: white;
+    font-size: 7rem;
+    padding: 8rem 0 6.5rem 0;
 }
 .search-form{
     display: flex;
@@ -181,7 +188,7 @@ html{
 
 .info-top{
     display:flex;
-    font-size: 7rem;
+    font-size: 5rem;
     text-align: center;
     justify-content:center;
     overflow: hidden;
@@ -198,9 +205,9 @@ html{
 .info-text{
     display: none;
     position: absolute;
-    font-size: 4rem;
+    font-size: 3rem;
     width: 90%;
-    gap: 2rem;
+    gap: 1rem;
     justify-content:space-evenly;
     overflow: hidden;
     flex-direction: column;
@@ -279,7 +286,7 @@ html{
     text-align: center;
     justify-content: center;
     flex-direction: column;
-    height:100vh;
+    height:60vh;
     width: 100%;
     gap: 5rem;
 }
@@ -331,18 +338,20 @@ html{
         font-size: 3rem;
     }
     .info-text strong{
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
     .info-text p {
-        font-size: 1.9rem;
+        font-size: 1.7rem;
     }
+    .search h2 {
+        font-size: 5rem;
+    }
+
+    
 }
 
 @media (max-width:768px){
     /* header */
-    .header-container{
-        position: fixed;
-    }
     .header-title {
         font-size: 6rem;
     }
@@ -371,7 +380,9 @@ html{
     .button-search{
         font-size: 3.5rem;
     }
-
+    .search h2 {
+        font-size: 4rem;
+    }
 
     /* card */
 
@@ -381,9 +392,86 @@ html{
     }
 
     .info-text strong{
+        font-size: 1.7rem;
+    }
+    .info-text p {
+        font-size: 1.4rem;
+    }
+
+    .footer-container h6{
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width:670px){
+    .movie-card{
+        height: 100%;
+        width: 55%;
+    }
+    .footer-container h6{
+        font-size: 2rem;
+    }
+    .footer-icons{
+        gap: 1.5rem;
+    }
+    .social-icons{
+        color:var(--yellow);
+        font-size: 3rem;
+    }
+    .info-text strong{
         font-size: 1.8rem;
     }
     .info-text p {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
+    }
+    .search h2 {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width:600px){
+    .info-top h2{
+        font-size: 2.5rem;
+    }
+
+    .search h1{
+        font-size: 5rem;
+    }
+    .search-input {
+        width: 15rem;
+    }
+    .button-search {
+        font-size: 2.5rem;
+    }
+    .info-text strong{
+        font-size: 1.2rem;
+    }
+    .info-text p {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width:450px){
+
+    .header-title {
+        font-size: 4rem;
+    }
+    .header-container h6{
+        font-size: 2rem;
+    }
+    .nav-items{  
+        gap: 1rem;
+    }
+    .nav-buttons{
+        font-size: 1rem;
+        padding: .3rem .8rem;
+        white-space: nowrap;
+    }
+    .nav-buttons i{
+        font-size: 1rem;
+    }
+    .movie-card {
+        height: 100%;
+        width: 80%;
     }
 }

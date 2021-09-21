@@ -31,6 +31,7 @@ html{
 .input-form-crud{
     font-family: 'Comfortaa';
     display:flex;
+    width: 100%;
     padding: .5rem;
     border-radius: 1rem;
     border: .1rem solid var(--yellow);
@@ -51,6 +52,7 @@ label{
 .create-area-crud{
     resize: none;
     width: 20vw;
+    min-width: 30rem;
     height: 18vh;
 }
 
@@ -97,24 +99,62 @@ label{
     color: white;
     cursor: pointer;
 }
-.create-buttons{
-    display: flex;
-    justify-content: center;
-    gap: 5rem;
-}
-.button-form{
-    display: inline-block;
-    font-family: 'Bebas Neue';
-    border-radius: 1rem;
-    color: var(--black);
-    background-color: var(--yellow);
-    white-space: nowrap;
-    width: 16rem;
-    text-align: center;
-    height: 3rem; 
-    padding: .38rem; 
-    margin-top: 1rem;
-    font-size: 1.7rem;
-    
+
+@media (max-width:600px){
+    .edit-container{
+        padding: 3rem;
+        margin-top: 4.5rem;
+    }
+    .text-camp-crud label {
+        font-size: 2rem;
+    }
+
+    .input-form-crud{
+        height: 3rem;
+    }
+    .create-area-crud{
+        resize: none;
+        width: 20vw;
+        min-width: 30rem;
+        height: 18vh;
+    }
+    .edit-buttons{
+        gap: 1rem;
+    }
+
 }
 
+@media (max-width:400px){
+    .edit-container{
+        margin-top: 3rem;
+        padding: 2rem;
+    }
+    .text-camp-crud label {
+        font-size: 1.5rem;
+    }
+
+    .input-form-crud{
+        height: 2.5rem;
+    }
+    .create-area-crud{
+        resize: none;
+        width: 20vw;
+        min-width: 30rem;
+        height: 18vh;
+    }
+    .edit-buttons{
+        gap: .5rem;
+    }
+    .button-select-crud{  
+        width: 10rem;
+        font-size: 1.5rem;
+
+    }
+}
+
+@media (max-width:380px){
+    .edit-container{
+        padding: 1rem;
+    }
+    
+}
