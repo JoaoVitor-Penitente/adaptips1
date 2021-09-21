@@ -32,8 +32,6 @@
                         <p><strong>Nota:</strong> {{$movie->rating}}</p>
                         <p><strong>Sinopse:</strong>{{$movie->synopsis}}</p>
                     </div>
-                    <button>aqui<br></button>
-                    <a href="">aqui</a>
                 </div>
                 
                 <div class = "main-button-container">
